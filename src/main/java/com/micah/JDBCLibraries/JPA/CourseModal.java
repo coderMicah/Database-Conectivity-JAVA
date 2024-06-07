@@ -1,6 +1,12 @@
-package com.micah.JDBCLibraries.JDBC;
+package com.micah.JDBCLibraries.JPA;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class CourseModal {
+
+    @Id
     private long id;
     private String name;
     private String author;

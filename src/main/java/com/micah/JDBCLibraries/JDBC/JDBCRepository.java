@@ -1,5 +1,7 @@
 package com.micah.JDBCLibraries.JDBC;
 
+import java.util.List;
+import java.util.Map;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,9 @@ public class JDBCRepository {
              select * from Course
              where id = ?
             """;
-    // private static String SELECT_ALL_QUERY = """
-    //          select * from Course
-    //         """;
+    private static String SELECT_ALL_QUERY = """
+             select * from Course
+            """;
     private static String DELETE_QUERY = """
              delete from Course
              where id = ?
@@ -35,9 +37,9 @@ public class JDBCRepository {
     }
 
     // GET A SINGLE ENTITY FROM DB
-    // public List<Map<String, Object>> findAll() {
-    //     return template.queryForList(SELECT_ALL_QUERY, new BeanPropertyRowMapper<>(CourseModal.class));
-    // }
+    public List<Map<String, Object>> findAll() {
+        return template.queryForList(SELECT_ALL_QUERY, new BeanPropertyRowMapper<>(CourseModal.class));
+    }
 
     // GET A SINGLE ENTITY FROM DB
     public CourseModal findById(long id) {
